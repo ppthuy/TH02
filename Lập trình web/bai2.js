@@ -1,22 +1,23 @@
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Ngăn chặn biểu mẫu gửi đi mặc định
+// Đặt sự kiện lắng nghe cho nút gửi
+document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+    // Ngăn chặn hành vi mặc định của form
+    event.preventDefault();
 
-    const formData = new FormData(this);
-    let submittedInfo = ''; // Chuỗi để chứa thông tin đã nhập
+    // Lấy giá trị từ các trường input
+    var fullname = document.querySelector('input[name="fullname"]').value;
+    var mathe = document.querySelector('input[name="mathe"]').value;
+    var phone = document.querySelector('input[name="title"]').value;
+    var email = document.querySelector('input[name="email"]').value;
+    var loaiKH = document.getElementById('Customerid').value;
+    var maHD = document.querySelector('input[name="saleoderid"]').value;
+    var noiDung = document.querySelector('textarea[name="message"]').value;
 
-    // Lặp qua các cặp giá trị của formData và thêm vào submittedInfo
-    for (let [key, value] of formData.entries()) {
-        submittedInfo += `${key}: ${value}\n`;
-    }
-
-    // Xuất thông báo với thông tin đã nhập
-    alert("\n" + submittedInfo);
-
-    // làm mới form
-    this.reset();
-});
-
-document.getElementById('submitBtn').addEventListener('click', function() {
-    // Xử lý logic khi nút gửi được nhấn
-    alert('Ý kiến của bạn đã được gửi thành công!');
+    // Hiển thị thông báo
+    alert("Họ và Tên: " + fullname + "\n" +
+          "Mã thẻ: " + mathe + "\n" +
+          "Số điện thoại: " + phone + "\n" +
+          "Email: " + email + "\n" +
+          "Loại khách hàng: " + loaiKH + "\n" +
+          "Mã hóa đơn: " + maHD + "\n" +
+          "Nội dung góp ý: " + noiDung);
 });
